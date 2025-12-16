@@ -1,0 +1,100 @@
+{
+  "config": {
+    "episodes": 10,
+    "horizon": 16,
+    "temperature": 0.27,
+    "epsilon": 0.06,
+    "game_path": "outputs/tictactoe_omission_nodiag/tictactoe_omission_nodiag.ludax"
+  },
+  "episodes": [
+    {
+      "episode": 1,
+      "outcome": "draw",
+      "winner_field": -1,
+      "value_est": 0.8185957670211792,
+      "moves": [4, 0, 2, 6, 7, 1, 3, 5, 8],
+      "steps": 9
+    },
+    {
+      "episode": 2,
+      "outcome": "P1",
+      "winner_field": 1,
+      "value_est": 0.7899112701416016,
+      "moves": [4, 0, 8, 1, 5, 2],
+      "steps": 6
+    },
+    {
+      "episode": 3,
+      "outcome": "draw",
+      "winner_field": -1,
+      "value_est": 0.7899112701416016,
+      "moves": [1, 4, 7, 0, 2, 6, 8, 3, 5],
+      "steps": 9
+    },
+    {
+      "episode": 4,
+      "outcome": "P0",
+      "winner_field": 0,
+      "value_est": 0.8056614995002747,
+      "moves": [0, 4, 3, 1, 6],
+      "steps": 5
+    },
+    {
+      "episode": 5,
+      "outcome": "draw",
+      "winner_field": -1,
+      "value_est": 0.8185957670211792,
+      "moves": [8, 4, 6, 2, 0, 7, 5, 3, 1],
+      "steps": 9
+    },
+    {
+      "episode": 6,
+      "outcome": "draw",
+      "winner_field": -1,
+      "value_est": 0.7899112701416016,
+      "moves": [3, 4, 5, 0, 8, 2, 6, 7, 1],
+      "steps": 9
+    },
+    {
+      "episode": 7,
+      "outcome": "P0",
+      "winner_field": 0,
+      "value_est": 0.8031174540519714,
+      "moves": [0, 4, 1, 3, 2],
+      "steps": 5
+    },
+    {
+      "episode": 8,
+      "outcome": "draw",
+      "winner_field": -1,
+      "value_est": 0.8185957670211792,
+      "moves": [2, 4, 0, 8, 6, 1, 7, 3, 5],
+      "steps": 9
+    },
+    {
+      "episode": 9,
+      "outcome": "draw",
+      "winner_field": -1,
+      "value_est": 0.7899112701416016,
+      "moves": [4, 2, 8, 0, 6, 7, 1, 5, 3],
+      "steps": 9
+    },
+    {
+      "episode": 10,
+      "outcome": "draw",
+      "winner_field": -1,
+      "value_est": 0.8185957670211792,
+      "moves": [4, 5, 6, 7, 8, 2, 3, 0, 1],
+      "steps": 9
+    }
+  ],
+  "counts": {
+    "P0": 2,
+    "P1": 1,
+    "draw": 7,
+    "timeout": 0,
+    "no_legal_moves": 0,
+    "unknown_winner": 0
+  },
+  "lengths": [9, 6, 9, 5, 9, 9, 5, 9, 9, 9]
+}

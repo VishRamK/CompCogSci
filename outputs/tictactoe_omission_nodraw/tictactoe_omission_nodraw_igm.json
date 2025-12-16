@@ -1,0 +1,100 @@
+{
+  "config": {
+    "episodes": 10,
+    "horizon": 16,
+    "temperature": 0.28,
+    "epsilon": 0.07,
+    "game_path": "outputs/tictactoe_omission_nodraw/tictactoe_omission_nodraw.ludax"
+  },
+  "episodes": [
+    {
+      "episode": 1,
+      "outcome": "no_legal_moves",
+      "winner_field": -1,
+      "value_est": 0.8185957670211792,
+      "moves": [4, 0, 8, 2, 6, 7, 1, 5, 3],
+      "steps": 9
+    },
+    {
+      "episode": 2,
+      "outcome": "P1",
+      "winner_field": 1,
+      "value_est": 0.7899112701416016,
+      "moves": [0, 4, 1, 8, 7, 6],
+      "steps": 6
+    },
+    {
+      "episode": 3,
+      "outcome": "P0",
+      "winner_field": 0,
+      "value_est": 0.8068815469741821,
+      "moves": [0, 1, 4, 2, 8],
+      "steps": 5
+    },
+    {
+      "episode": 4,
+      "outcome": "no_legal_moves",
+      "winner_field": -1,
+      "value_est": 0.8185957670211792,
+      "moves": [4, 1, 7, 0, 2, 6, 8, 5, 3],
+      "steps": 9
+    },
+    {
+      "episode": 5,
+      "outcome": "P0",
+      "winner_field": 0,
+      "value_est": 0.8013440370559692,
+      "moves": [2, 4, 6, 3, 0],
+      "steps": 5
+    },
+    {
+      "episode": 6,
+      "outcome": "no_legal_moves",
+      "winner_field": -1,
+      "value_est": 0.7899112701416016,
+      "moves": [1, 4, 0, 2, 5, 3, 6, 8, 7],
+      "steps": 9
+    },
+    {
+      "episode": 7,
+      "outcome": "P1",
+      "winner_field": 1,
+      "value_est": 0.7925084233283997,
+      "moves": [4, 0, 2, 8, 7, 6],
+      "steps": 6
+    },
+    {
+      "episode": 8,
+      "outcome": "no_legal_moves",
+      "winner_field": -1,
+      "value_est": 0.8185957670211792,
+      "moves": [8, 4, 0, 2, 6, 7, 1, 5, 3],
+      "steps": 9
+    },
+    {
+      "episode": 9,
+      "outcome": "P0",
+      "winner_field": 0,
+      "value_est": 0.8049947619438171,
+      "moves": [3, 4, 0, 1, 6],
+      "steps": 5
+    },
+    {
+      "episode": 10,
+      "outcome": "no_legal_moves",
+      "winner_field": -1,
+      "value_est": 0.7899112701416016,
+      "moves": [4, 2, 0, 8, 5, 1, 7, 6, 3],
+      "steps": 9
+    }
+  ],
+  "counts": {
+    "P0": 3,
+    "P1": 2,
+    "draw": 0,
+    "timeout": 0,
+    "no_legal_moves": 5,
+    "unknown_winner": 0
+  },
+  "lengths": [9, 6, 5, 9, 5, 9, 6, 9, 5, 9]
+}

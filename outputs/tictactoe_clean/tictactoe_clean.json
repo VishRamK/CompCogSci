@@ -1,0 +1,26 @@
+{
+  "game_name": "TicTacToe",
+  "board": {
+    "type": "grid",
+    "rows": 3,
+    "cols": 3
+  },
+  "players": 2,
+  "pieces": [
+    "X",
+    "O"
+  ],
+  "turn_order": "alternate",
+  "moves": {
+    "type": "place_on_empty_cell"
+  },
+  "win_condition": {
+    "line_length": 3,
+    "directions": [
+      "row",
+      "column"
+    ],
+    "last_object": "unspecified"
+  },
+  "draw_condition": "board_full"
+}

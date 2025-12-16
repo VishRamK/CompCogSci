@@ -1,0 +1,18 @@
+{
+  "tictactoe_clean": "outputs/tictactoe_clean/tictactoe_clean_igm.json",
+  "tictactoe_paraphrase": "outputs/tictactoe_paraphrase/tictactoe_paraphrase_igm.json",
+  "tictactoe_omission_nodraw": "outputs/tictactoe_omission_nodraw/tictactoe_omission_nodraw_igm.json",
+  "tictactoe_omission_nodiag": "outputs/tictactoe_omission_nodiag/tictactoe_omission_nodiag_igm.json",
+  "tictactoe_lexical_nodiag": "outputs/tictactoe_lexical_nodiag/tictactoe_lexical_nodiag_igm.json",
+
+  "nim_clean": "outputs/nim_clean/nim_clean_igm.json",
+  "nim_paraphrase": "outputs/nim_paraphrase/nim_paraphrase_igm.json",
+  "nim_omission_wincond": "outputs/nim_omission_wincond/nim_omission_wincond_igm.json",
+  "nim_lexical_some": "outputs/nim_lexical_some/nim_lexical_some_igm.json",
+  "nim_scope_wincond": "outputs/nim_scope_wincond/nim_scope_wincond_igm.json",
+
+  "connect4_clean": "outputs/connect4_clean/connect4_clean_igm.json",
+  "connect4_omission_draw": "outputs/connect4_omission_draw/connect4_omission_draw_igm.json",
+  "connect4_omission_gravity": "outputs/connect4_omission_gravity/connect4_omission_gravity_igm.json",
+  "connect4_lexical_adj": "outputs/connect4_lexical_adj/connect4_lexical_adj_igm.json"
+}

@@ -1,0 +1,105 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LudaxGame",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "game_name": { "type": "string" },
+
+    "board": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "type": { "const": "grid" },
+            "rows": { "type": "integer", "minimum": 1 },
+            "cols": { "type": "integer", "minimum": 1 }
+          },
+          "required": ["type", "rows", "cols"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": { "const": "heaps" },
+            "heaps": { "type": "integer", "minimum": 1 },
+            "sizes": {
+              "type": "array",
+              "items": { "type": "integer", "minimum": 1 },
+              "minItems": 1
+            }
+          },
+          "required": ["type", "heaps", "sizes"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": { "const": "unspecified" }
+          },
+          "required": ["type"],
+          "additionalProperties": false
+        }
+      ]
+    },
+
+    "players": { "type": "integer", "minimum": 2 },
+
+    "pieces": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+
+    "turn_order": { "const": "alternate" },
+
+    "moves": {
+      "type": "object",
+      "properties": {
+        "type": { "enum": ["place_on_empty_cell", "drop_in_column", "remove_from_heap"] }
+      },
+      "required": ["type"],
+      "additionalProperties": false
+    },
+
+    "win_condition": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "line_length": { "type": "integer", "minimum": 1 },
+            "directions": {
+              "type": "array",
+              "items": { "enum": ["row", "column", "diagonal"] },
+              "minItems": 1,
+              "uniqueItems": true
+            }
+          },
+          "required": ["line_length"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "last_object": { "type": "boolean" }
+          },
+          "required": ["last_object"],
+          "additionalProperties": false
+        }
+      ]
+    },
+
+    "draw_condition": { "enum": ["board_full", "none", "unspecified"] }
+  },
+
+  "required": [
+    "game_name",
+    "board",
+    "players",
+    "pieces",
+    "turn_order",
+    "moves",
+    "win_condition",
+    "draw_condition"
+  ]
+}

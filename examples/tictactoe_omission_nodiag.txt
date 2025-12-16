@@ -1,0 +1,1 @@
+Tic-Tac-Toe is played on a 3×3 grid. Two players take turns placing marks on empty cells. The first player to get three in a row or column wins.

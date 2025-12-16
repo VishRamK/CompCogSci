@@ -1,0 +1,177 @@
+{
+  "config": {
+    "episodes": 10,
+    "horizon": 64,
+    "temperature": 0.45,
+    "epsilon": 0.1,
+    "game_path": "outputs/nim_clean/nim_clean.json",
+    "game_name": "Nim",
+    "num_heaps": 3,
+    "max_remove": 5
+  },
+  "episodes": [
+    {
+      "episode": 1,
+      "outcome": "P0",
+      "winner_field": 0,
+      "value_est": 0.09118147492408753,
+      "moves": [
+        1,
+        8,
+        13,
+        0,
+        10
+      ],
+      "steps": 5
+    },
+    {
+      "episode": 2,
+      "outcome": "P0",
+      "winner_field": 0,
+      "value_est": 0.06506102425711495,
+      "moves": [
+        1,
+        0,
+        10,
+        5,
+        10,
+        7,
+        12
+      ],
+      "steps": 7
+    },
+    {
+      "episode": 3,
+      "outcome": "P0",
+      "winner_field": 0,
+      "value_est": 0.06330793244498116,
+      "moves": [
+        1,
+        5,
+        12,
+        6,
+        11,
+        5,
+        0
+      ],
+      "steps": 7
+    },
+    {
+      "episode": 4,
+      "outcome": "P1",
+      "winner_field": 1,
+      "value_est": 0.21937177330255508,
+      "moves": [
+        8,
+        11,
+        12,
+        2
+      ],
+      "steps": 4
+    },
+    {
+      "episode": 5,
+      "outcome": "P0",
+      "winner_field": 0,
+      "value_est": 0.09118147492408753,
+      "moves": [
+        1,
+        8,
+        13,
+        0,
+        10
+      ],
+      "steps": 5
+    },
+    {
+      "episode": 6,
+      "outcome": "P0",
+      "winner_field": 0,
+      "value_est": 0.0888275921344757,
+      "moves": [
+        1,
+        7,
+        14,
+        0,
+        5
+      ],
+      "steps": 5
+    },
+    {
+      "episode": 7,
+      "outcome": "P0",
+      "winner_field": 0,
+      "value_est": 0.09118147492408753,
+      "moves": [
+        1,
+        13,
+        8,
+        10,
+        0
+      ],
+      "steps": 5
+    },
+    {
+      "episode": 8,
+      "outcome": "P1",
+      "winner_field": 1,
+      "value_est": 0.15234719216823578,
+      "moves": [
+        1,
+        12,
+        10,
+        8,
+        10,
+        0
+      ],
+      "steps": 6
+    },
+    {
+      "episode": 9,
+      "outcome": "P1",
+      "winner_field": 1,
+      "value_est": 0.23739229142665863,
+      "moves": [
+        1,
+        14,
+        0,
+        8
+      ],
+      "steps": 4
+    },
+    {
+      "episode": 10,
+      "outcome": "P0",
+      "winner_field": 0,
+      "value_est": 0.09118147492408753,
+      "moves": [
+        1,
+        13,
+        8,
+        10,
+        0
+      ],
+      "steps": 5
+    }
+  ],
+  "counts": {
+    "P0": 7,
+    "P1": 3,
+    "draw": 0,
+    "timeout": 0,
+    "no_legal_moves": 0,
+    "unknown_winner": 0
+  },
+  "lengths": [
+    5,
+    7,
+    7,
+    4,
+    5,
+    5,
+    5,
+    6,
+    4,
+    5
+  ]
+}

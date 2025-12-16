@@ -1,0 +1,102 @@
+{
+  "config": {
+    "episodes": 10,
+    "horizon": 64,
+    "temperature": 0.38,
+    "epsilon": 0.10,
+    "game_path": "outputs/connect4_omission_gravity/connect4_omission_gravity.json",
+    "rows": 6,
+    "cols": 7
+  },
+  "episodes": [
+    {
+      "episode": 1,
+      "outcome": "P0",
+      "winner_field": 0,
+      "value_est": 0.7615940570831299,
+      "moves": [3, 3, 2, 4, 3, 2, 3],
+      "steps": 7
+    },
+    {
+      "episode": 2,
+      "outcome": "P1",
+      "winner_field": 1,
+      "value_est": 0.6133571267127991,
+      "moves": [1, 5, 5, 4, 2, 5, 3, 5],
+      "steps": 8
+    },
+    {
+      "episode": 3,
+      "outcome": "P0",
+      "winner_field": 0,
+      "value_est": 0.7615940570831299,
+      "moves": [6, 2, 6, 1, 6, 3, 6],
+      "steps": 7
+    },
+    {
+      "episode": 4,
+      "outcome": "P0",
+      "winner_field": 0,
+      "value_est": 0.6133571267127991,
+      "moves": [3, 0, 4, 4, 2, 4, 1, 4],
+      "steps": 8
+    },
+    {
+      "episode": 5,
+      "outcome": "P1",
+      "winner_field": 1,
+      "value_est": 0.6133571267127991,
+      "moves": [2, 2, 1, 2, 1, 2, 0, 2],
+      "steps": 8
+    },
+    {
+      "episode": 6,
+      "outcome": "P0",
+      "winner_field": 0,
+      "value_est": 0.7615940570831299,
+      "moves": [4, 1, 4, 2, 4, 3, 4],
+      "steps": 7
+    },
+    {
+      "episode": 7,
+      "outcome": "P0",
+      "winner_field": 0,
+      "value_est": 0.7615940570831299,
+      "moves": [0, 6, 1, 6, 2, 6, 3, 6],
+      "steps": 8
+    },
+    {
+      "episode": 8,
+      "outcome": "P1",
+      "winner_field": 1,
+      "value_est": 0.6133571267127991,
+      "moves": [3, 5, 3, 5, 4, 5, 2, 5],
+      "steps": 8
+    },
+    {
+      "episode": 9,
+      "outcome": "P0",
+      "winner_field": 0,
+      "value_est": 0.7615940570831299,
+      "moves": [5, 3, 4, 3, 4, 3, 4, 3],
+      "steps": 8
+    },
+    {
+      "episode": 10,
+      "outcome": "P0",
+      "winner_field": 0,
+      "value_est": 0.6133571267127991,
+      "moves": [2, 0, 3, 0, 4, 0, 5, 0],
+      "steps": 8
+    }
+  ],
+  "counts": {
+    "P0": 7,
+    "P1": 3,
+    "draw": 0,
+    "timeout": 0,
+    "no_legal_moves": 0,
+    "unknown_winner": 0
+  },
+  "lengths": [7, 8, 7, 8, 8, 7, 8, 8, 8, 8]
+}

@@ -1,0 +1,1 @@
+Connect Four is played on a 6×7 grid. Players take turns dropping discs into columns. The first player to get four adjacent discs wins.

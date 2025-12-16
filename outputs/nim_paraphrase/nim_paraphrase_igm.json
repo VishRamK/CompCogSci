@@ -1,0 +1,103 @@
+{
+  "config": {
+    "episodes": 10,
+    "horizon": 64,
+    "temperature": 0.45,
+    "epsilon": 0.1,
+    "game_path": "outputs/nim_paraphrase/nim_paraphrase.json",
+    "game_name": "Nim",
+    "num_heaps": 3,
+    "max_remove": 5
+  },
+  "episodes": [
+    {
+      "episode": 1,
+      "outcome": "P0",
+      "winner_field": 0,
+      "value_est": 0.09141242504119873,
+      "moves": [1, 8, 13, 0, 10],
+      "steps": 5
+    },
+    {
+      "episode": 2,
+      "outcome": "P0",
+      "winner_field": 0,
+      "value_est": 0.06644771993160248,
+      "moves": [1, 0, 10, 5, 10, 7, 12],
+      "steps": 7
+    },
+    {
+      "episode": 3,
+      "outcome": "P0",
+      "winner_field": 0,
+      "value_est": 0.06419336050748825,
+      "moves": [1, 5, 12, 6, 11, 5, 0],
+      "steps": 7
+    },
+    {
+      "episode": 4,
+      "outcome": "P1",
+      "winner_field": 1,
+      "value_est": 0.2201380729675293,
+      "moves": [8, 11, 12, 2],
+      "steps": 4
+    },
+    {
+      "episode": 5,
+      "outcome": "P0",
+      "winner_field": 0,
+      "value_est": 0.08920280635356903,
+      "moves": [1, 7, 14, 0, 5],
+      "steps": 5
+    },
+    {
+      "episode": 6,
+      "outcome": "P0",
+      "winner_field": 0,
+      "value_est": 0.09199778735637665,
+      "moves": [1, 13, 8, 10, 0],
+      "steps": 5
+    },
+    {
+      "episode": 7,
+      "outcome": "P1",
+      "winner_field": 1,
+      "value_est": 0.15388014912605286,
+      "moves": [1, 12, 10, 8, 10, 0],
+      "steps": 6
+    },
+    {
+      "episode": 8,
+      "outcome": "P0",
+      "winner_field": 0,
+      "value_est": 0.08510917484760284,
+      "moves": [1, 8, 12, 0, 11],
+      "steps": 5
+    },
+    {
+      "episode": 9,
+      "outcome": "P0",
+      "winner_field": 0,
+      "value_est": 0.09077730059623718,
+      "moves": [1, 14, 8, 10, 0],
+      "steps": 5
+    },
+    {
+      "episode": 10,
+      "outcome": "P0",
+      "winner_field": 0,
+      "value_est": 0.0739598497748375,
+      "moves": [1, 6, 12, 5, 10, 7, 0],
+      "steps": 7
+    }
+  ],
+  "counts": {
+    "P0": 8,
+    "P1": 2,
+    "draw": 0,
+    "timeout": 0,
+    "no_legal_moves": 0,
+    "unknown_winner": 0
+  },
+  "lengths": [5, 7, 7, 4, 5, 5, 6, 5, 5, 7]
+}

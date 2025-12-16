@@ -1,0 +1,26 @@
+{
+  "game_name": "Nim",
+  "board": {
+    "type": "heaps",
+    "heaps": 3,
+    "sizes": [
+      3,
+      4,
+      5
+    ]
+  },
+  "players": 2,
+  "pieces": [
+    "token"
+  ],
+  "turn_order": "alternate",
+  "moves": {
+    "type": "remove_from_heap"
+  },
+  "win_condition": {
+    "line_length": "unspecified",
+    "directions": "unspecified",
+    "last_object": "unspecified"
+  },
+  "draw_condition": "unspecified"
+}

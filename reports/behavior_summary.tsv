@@ -1,0 +1,14 @@
+variant	outcome_kl	mean_length_diff	gen_mean_len	ref_mean_len
+connect4_clean	0.000000	0.000	20.200	20.200
+connect4_lexical_adj	0.000000	0.000	9.100	9.100
+connect4_omission_draw	0.000000	0.000	38.500	38.500
+connect4_omission_gravity	0.000000	0.000	7.700	7.700
+nim_clean	0.000000	0.000	5.300	5.300
+nim_lexical_some	0.000000	0.000	5.400	5.400
+nim_omission_wincond	0.000000	0.000	5.600	5.600
+nim_paraphrase	0.000000	0.000	5.600	5.600
+tictactoe_clean	0.000000	0.000	8.900	8.900
+tictactoe_lexical_nodiag	0.000000	0.000	7.900	7.900
+tictactoe_omission_nodiag	0.000000	0.000	7.900	7.900
+tictactoe_omission_nodraw	0.000000	0.000	7.200	7.200
+tictactoe_paraphrase	0.000000	0.000	8.900	8.900

@@ -1,0 +1,1 @@
+Nim is played with three heaps of objects. Two players take turns removing any number of objects from a single heap. The game ends when no objects remain.

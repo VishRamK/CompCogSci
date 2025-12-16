@@ -1,0 +1,1 @@
+Nim is played with three piles. Players take turns taking objects from one pile. On a turn, a player can take some objects. Whoever takes the last object wins.

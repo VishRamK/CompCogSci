@@ -1,0 +1,1 @@
+Connect Four is played on a 6×7 grid. Two players, Red and Yellow, take turns dropping discs into columns. The disc falls to the lowest empty space in the column. The first player to get four of their discs in a row, column, or diagonal wins.

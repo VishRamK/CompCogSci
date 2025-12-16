@@ -1,0 +1,1 @@
+Tic-Tac-Toe uses a 3×3 board. X and O alternate placing marks in empty squares. A player wins by completing three marks aligned horizontally, vertically, or diagonally. If all squares are filled and nobody wins, it’s a draw.

@@ -1,0 +1,1 @@
+Connect Four is played on a 6×7 grid. Two players take turns placing discs in a column. The first player to get four of their discs in a row, column, or diagonal wins. If the board fills with no winner, the game is a draw.
