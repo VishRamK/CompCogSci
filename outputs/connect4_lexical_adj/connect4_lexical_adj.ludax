@@ -1,0 +1,20 @@
+(game "Connect Four"
+  (players 2)
+  (equipment
+    (board (rectangle 6 7))
+  )
+  (rules
+    (play
+      (repeat
+        (P1 P2)
+        (drop mover (destination empty))
+      )
+    )
+    (end
+      (if (line 4 orientation:orthogonal) (mover win))
+      (if (line 4 orientation:diagonal) (mover win))=
+      (if (group size:4 adjacency:any) (mover win))
+      (if (full_board) (draw))
+    )
+  )
+)

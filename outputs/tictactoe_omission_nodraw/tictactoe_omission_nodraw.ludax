@@ -1,0 +1,19 @@
+(game "TicTacToe"
+  (players 2)
+  (equipment
+    (board (rectangle 3 3))
+  )
+  (rules
+    (play
+      (repeat
+        (P1 P2)
+        (place mover (destination empty))
+      )
+    )
+    (end
+      (if (line 3 orientation:orthogonal) (mover win))
+      (if (line 3 orientation:diagonal) (mover win))
+      ; draw omitted (unspecified)
+    )
+  )
+)

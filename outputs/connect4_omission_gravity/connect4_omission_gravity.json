@@ -1,26 +1,19 @@
 {
-  "game_name": "TicTacToe",
+  "game_name": "Connect Four",
   "board": {
     "type": "grid",
-    "rows": 3,
-    "cols": 3
+    "rows": 6,
+    "cols": 7
   },
   "players": 2,
-  "pieces": [
-    "X",
-    "O"
-  ],
+  "pieces": ["R", "Y"],
   "turn_order": "alternate",
   "moves": {
     "type": "place_on_empty_cell"
   },
   "win_condition": {
-    "line_length": 3,
-    "directions": [
-      "row",
-      "column",
-      "diagonal"
-    ],
+    "line_length": 4,
+    "directions": ["row", "column", "diagonal"],
     "last_object": "unspecified"
   },
   "draw_condition": "board_full"

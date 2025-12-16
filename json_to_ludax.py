@@ -1,119 +1,64 @@
-# import json
-# import sys
-
-# LUDAX_TEMPLATE = """(game "{game_name}"
-#   (players {players})
-
-#   (equipment
-#     (board (rectangle {rows} {cols}))
-#   )
-
-#   (rules
-#     (play
-#       (repeat
-#         (P1 P2)
-#         (place
-#           mover
-#           (destination empty)
-#         )
-#       )
-#     )
-
-#     (end
-#       (if (line {line_length} orientation:orthogonal) (mover win))
-#       (if (line {line_length} orientation:diagonal)   (mover win))
-#       (if (full_board)                                (draw))
-#     )
-#   )
-# )
-# """
-
-# def json_to_ludax(json_path, ludax_path):
-#     with open(json_path, "r") as f:
-#         data = json.load(f)
-
-#     ludax = LUDAX_TEMPLATE.format(
-#         game_name=data["game_name"],
-#         players=data["players"],
-#         rows=data["board"]["rows"],
-#         cols=data["board"]["cols"],
-#         line_length=data["win_condition"]["line_length"],
-#     )
-
-#     with open(ludax_path, "w") as f:
-#         f.write(ludax)
-#     print(f"Ludax file written to {ludax_path}")
-    
-
-# if __name__ == "__main__":
-#     if len(sys.argv) != 3:
-#         print("Usage: python json_to_ludax.py <input.json> <output.ludax>")
-#         sys.exit(1)
-#     json_to_ludax(sys.argv[1], sys.argv[2])
-
 import json
 import sys
+from typing import List
 
 
 def _sanitize_name(name: str) -> str:
-    return str(name).replace('"', "'")
+    return str(name).replace('"', "'").strip() or "Game"
 
 
-def _build_end_clauses_grid(data: dict) -> list[str]:
+def _require(cond: bool, msg: str):
+    if not cond:
+        raise ValueError(msg)
+
+
+def _build_end_clauses_grid(data: dict) -> List[str]:
     win = data.get("win_condition", {}) or {}
     directions = win.get("directions", []) or []
     line_len = win.get("line_length", None)
 
-    clauses = []
+    _require(line_len is not None, "Grid games require win_condition.line_length.")
+    _require(len(directions) > 0, "Grid games require win_condition.directions (non-empty).")
 
-    # Win conditions (orthogonal covers row+column)
-    if line_len is not None:
-        has_orth = ("row" in directions) or ("column" in directions)
-        has_diag = ("diagonal" in directions)
-        if has_orth:
-            clauses.append(f"(if (line {line_len} orientation:orthogonal) (mover win))")
-        if has_diag:
-            clauses.append(f"(if (line {line_len} orientation:diagonal) (mover win))")
+    clauses: List[str] = []
 
-    # Draw on full board
-    if (data.get("draw_condition") == "board_full"):
+    has_orth = ("row" in directions) or ("column" in directions)
+    has_diag = ("diagonal" in directions)
+
+    if has_orth:
+        clauses.append(f"(if (line {line_len} orientation:orthogonal) (mover win))")
+    if has_diag:
+        clauses.append(f"(if (line {line_len} orientation:diagonal) (mover win))")
+
+    # Draw handling
+    draw = data.get("draw_condition", "unspecified")
+    if draw == "board_full":
         clauses.append("(if (full_board) (draw))")
+    elif draw in ("none", "unspecified"):
+        # No draw clause emitted; this is a deliberate semantic choice.
+        pass
+    else:
+        raise ValueError(f"Unknown draw_condition: {draw}")
 
+    _require(len(clauses) > 0, "No terminal clauses were emitted (check directions/draw_condition).")
     return clauses
 
 
-def ludax_template(data: dict) -> str:
-    # Only support grid-based games here; raise for others to avoid bad files
-    board = data.get("board", {})
-    if board.get("type") != "grid":
-        raise ValueError(f"Unsupported board type for this template: {board.get('type')}")
+def _emit_grid_place_game(data: dict) -> str:
+    board = data.get("board", {}) or {}
+    _require(board.get("type") == "grid", f"Expected board.type='grid', got {board.get('type')}")
+    rows, cols = board.get("rows"), board.get("cols")
+    _require(isinstance(rows, int) and isinstance(cols, int), "Grid board requires integer rows/cols.")
 
-    rows = board.get("rows")
-    cols = board.get("cols")
-    if rows is None or cols is None:
-        raise ValueError("Grid board requires 'rows' and 'cols'.")
+    move_type = (data.get("moves", {}) or {}).get("type")
+    _require(move_type == "place_on_empty_cell",
+             f"Unsupported move type for grid-place template: {move_type}")
 
-    # Move template: support place-on-empty; other types can be added later
-    move = data.get("moves", {}) or {}
-    move_type = move.get("type", "place_on_empty_cell")
-    if move_type != "place_on_empty_cell":
-        # default to place on empty cell; safer than emitting unknown constructs
-        move_stmt = "(place mover (destination empty))"
-    else:
-        move_stmt = "(place mover (destination empty))"
-
-    # Build terminal clauses
     end_clauses = _build_end_clauses_grid(data)
-    if not end_clauses:
-        raise ValueError(
-            "No terminal conditions would be emitted. "
-            "Ensure win_condition.directions/line_length or draw_condition are set."
-        )
 
     game_name = _sanitize_name(data.get("game_name", "Game"))
     players = int(data.get("players", 2))
 
-    # Assemble Ludax (no (pieces ...) in equipment; it is not supported by the parser)
     return f'''(game "{game_name}"
   (players {players})
   (equipment
@@ -123,14 +68,42 @@ def ludax_template(data: dict) -> str:
     (play
       (repeat
         (P1 P2)
-        {move_stmt}
+        (place mover (destination empty))
       )
     )
     (end
-      {'\n      '.join(end_clauses)}
+      {'\\n      '.join(end_clauses)}
     )
   )
 )'''
+
+
+def ludax_template(data: dict) -> str:
+    """
+    Single entry point. Emits Ludax only for templates that are actually implemented.
+    IMPORTANT: do not silently coerce unsupported games into a different template.
+    """
+    board = data.get("board", {}) or {}
+    move_type = (data.get("moves", {}) or {}).get("type")
+
+    # Implemented: grid + place_on_empty_cell (Tic-Tac-Toe-style)
+    if board.get("type") == "grid" and move_type == "place_on_empty_cell":
+        return _emit_grid_place_game(data)
+
+    # Not implemented (yet): these should fail loudly and be counted as failures
+    if move_type == "drop_in_column":
+        raise NotImplementedError(
+            "drop_in_column is not implemented in this compiler. "
+            "If you evaluate Connect Four, use a dedicated compiler that encodes gravity "
+            "in the *legal move generator* (preferred) or explicitly state the limitation."
+        )
+    if board.get("type") == "heaps" or move_type == "remove_from_heap":
+        raise NotImplementedError(
+            "heaps/remove_from_heap is not implemented in this compiler. "
+            "If you evaluate Nim, use a dedicated compiler for heap games."
+        )
+
+    raise ValueError(f"Unsupported combination: board.type={board.get('type')} moves.type={move_type}")
 
 
 def json_to_ludax(json_path: str, ludax_path: str):

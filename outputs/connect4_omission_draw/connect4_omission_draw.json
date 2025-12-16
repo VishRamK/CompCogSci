@@ -1,0 +1,20 @@
+{
+  "game_name": "Connect Four",
+  "board": {
+    "type": "grid",
+    "rows": 6,
+    "cols": 7
+  },
+  "players": 2,
+  "pieces": ["R", "Y"],
+  "turn_order": "alternate",
+  "moves": {
+    "type": "drop_in_column"
+  },
+  "win_condition": {
+    "line_length": 4,
+    "directions": ["row", "column", "diagonal"],
+    "last_object": "unspecified"
+  },
+  "draw_condition": "unspecified"
+}

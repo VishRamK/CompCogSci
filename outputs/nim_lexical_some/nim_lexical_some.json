@@ -7,17 +7,14 @@
   },
   "players": 2,
   "turn_order": "alternate",
-
   "moves": {
     "type": "remove_from_single_heap",
     "min_remove": 1,
-    "max_remove": "all"
+    "max_remove": "unspecified"
   },
-
   "termination": {
     "condition": "no_legal_moves"
   },
-
   "outcome": {
     "winner": "last_mover"
   }

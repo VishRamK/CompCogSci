@@ -3,8 +3,9 @@
   "title": "LudaxGame",
   "type": "object",
   "additionalProperties": false,
+
   "properties": {
-    "game_name": { "type": "string" },
+    "game_name": { "type": "string", "minLength": 1 },
 
     "board": {
       "oneOf": [
@@ -22,21 +23,18 @@
           "type": "object",
           "properties": {
             "type": { "const": "heaps" },
-            "heaps": { "type": "integer", "minimum": 1 },
             "sizes": {
               "type": "array",
               "items": { "type": "integer", "minimum": 1 },
               "minItems": 1
             }
           },
-          "required": ["type", "heaps", "sizes"],
+          "required": ["type", "sizes"],
           "additionalProperties": false
         },
         {
           "type": "object",
-          "properties": {
-            "type": { "const": "unspecified" }
-          },
+          "properties": { "type": { "const": "unspecified" } },
           "required": ["type"],
           "additionalProperties": false
         }
@@ -47,7 +45,7 @@
 
     "pieces": {
       "type": "array",
-      "items": { "type": "string" },
+      "items": { "type": "string", "minLength": 1 },
       "minItems": 1
     },
 
@@ -56,7 +54,9 @@
     "moves": {
       "type": "object",
       "properties": {
-        "type": { "enum": ["place_on_empty_cell", "drop_in_column", "remove_from_heap"] }
+        "type": {
+          "enum": ["place_on_empty_cell", "drop_in_column", "remove_from_heap"]
+        }
       },
       "required": ["type"],
       "additionalProperties": false
@@ -65,6 +65,7 @@
     "win_condition": {
       "oneOf": [
         {
+          "title": "Grid line win",
           "type": "object",
           "properties": {
             "line_length": { "type": "integer", "minimum": 1 },
@@ -75,14 +76,13 @@
               "uniqueItems": true
             }
           },
-          "required": ["line_length"],
+          "required": ["line_length", "directions"],
           "additionalProperties": false
         },
         {
+          "title": "Heaps last-object win",
           "type": "object",
-          "properties": {
-            "last_object": { "type": "boolean" }
-          },
+          "properties": { "last_object": { "type": "boolean" } },
           "required": ["last_object"],
           "additionalProperties": false
         }
@@ -101,5 +101,28 @@
     "moves",
     "win_condition",
     "draw_condition"
+  ],
+
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "moves": { "properties": { "type": { "const": "remove_from_heap" } } }
+        }
+      },
+      "then": {
+        "properties": { "board": { "properties": { "type": { "const": "heaps" } } } }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "moves": { "properties": { "type": { "enum": ["place_on_empty_cell", "drop_in_column"] } } }
+        }
+      },
+      "then": {
+        "properties": { "board": { "properties": { "type": { "const": "grid" } } } }
+      }
+    }
   ]
 }

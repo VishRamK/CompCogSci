@@ -18,8 +18,10 @@
     "line_length": 3,
     "directions": [
       "row",
-      "column"
-    ]
+      "column",
+      "diagonal"
+    ],
+    "last_object": "unspecified"
   },
   "draw_condition": "unspecified"
 }

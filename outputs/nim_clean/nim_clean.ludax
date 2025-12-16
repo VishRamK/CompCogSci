@@ -1,0 +1,22 @@
+(game "Nim"
+  (players 2)
+  (equipment
+    (heaps (sizes 3 4 5))
+  )
+  (rules
+    (play
+      (repeat
+        (P1 P2)
+        ; Remove k objects (k>=1) from one chosen non-empty heap
+        (remove mover
+          (heap any)
+          (count (range 1 (heap_size selected)))
+        )
+      )
+    )
+    (end
+      ; Last mover wins when all heaps are empty after their move
+      (if (heaps_empty) (mover win))
+    )
+  )
+)

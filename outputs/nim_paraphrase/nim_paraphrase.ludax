@@ -1,0 +1,20 @@
+(game "Nim"
+  (players 2)
+  (equipment
+    (heaps (sizes 3 4 5))
+  )
+  (rules
+    (play
+      (repeat
+        (P1 P2)
+        (remove mover
+          (heap any)
+          (count (range 1 (heap_size selected)))
+        )
+      )
+    )
+    (end
+      (if (heaps_empty) (mover win))
+    )
+  )
+)
