@@ -4,7 +4,7 @@
     "horizon": 64,
     "temperature": 0.40,
     "epsilon": 0.10,
-    "game_path": "outputs/connect4_lexical_adj/connect4_lexical_adj.json",
+    "game_path": "outputs/connect4_lexical_adj/connect4_lexical_adj.ludax",
     "rows": 6,
     "cols": 7
   },

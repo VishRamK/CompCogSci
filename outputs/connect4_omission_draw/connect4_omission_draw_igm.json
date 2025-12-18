@@ -4,7 +4,7 @@
     "horizon": 64,
     "temperature": 0.35,
     "epsilon": 0.08,
-    "game_path": "outputs/connect4_omission_draw/connect4_omission_draw.json",
+    "game_path": "outputs/connect4_omission_draw/connect4_omission_draw.ludax",
     "rows": 6,
     "cols": 7
   },

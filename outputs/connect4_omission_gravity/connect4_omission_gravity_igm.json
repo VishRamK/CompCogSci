@@ -4,7 +4,7 @@
     "horizon": 64,
     "temperature": 0.38,
     "epsilon": 0.10,
-    "game_path": "outputs/connect4_omission_gravity/connect4_omission_gravity.json",
+    "game_path": "outputs/connect4_omission_gravity/connect4_omission_gravity.ludax",
     "rows": 6,
     "cols": 7
   },

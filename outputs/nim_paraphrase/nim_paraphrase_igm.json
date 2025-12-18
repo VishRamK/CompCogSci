@@ -4,7 +4,7 @@
     "horizon": 64,
     "temperature": 0.45,
     "epsilon": 0.1,
-    "game_path": "outputs/nim_paraphrase/nim_paraphrase.json",
+    "game_path": "outputs/nim_paraphrase/nim_paraphrase.ludax",
     "game_name": "Nim",
     "num_heaps": 3,
     "max_remove": 5

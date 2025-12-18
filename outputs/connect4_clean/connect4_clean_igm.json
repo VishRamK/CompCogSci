@@ -4,7 +4,7 @@
     "horizon": 64,
     "temperature": 0.35,
     "epsilon": 0.08,
-    "game_path": "outputs/connect4_clean/connect4_clean.json",
+    "game_path": "outputs/connect4_clean/connect4_clean.ludax",
     "rows": 6,
     "cols": 7
   },
